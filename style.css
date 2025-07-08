@@ -4,9 +4,7 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #f0f2f5;
     color: #333;
-    /* iOSでのダブルタップによるズームを防止 */
     touch-action: manipulation;
-    /* 全体のスクロールを禁止 */
     overflow: hidden;
 }
 
@@ -34,26 +32,40 @@ header h1 {
 main#log-container {
     flex-grow: 1;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロールを有効に */
+    -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロール */
     padding: 10px;
     background-color: #fff;
 }
 
 .log-entry {
-    padding: 8px 12px;
+    padding: 12px;
     border-bottom: 1px solid #eee;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    font-family: "Menlo", "Monaco", monospace;
 }
 .log-entry:last-child {
     border-bottom: none;
 }
-.log-info {
+.log-grid {
+    display: grid;
+    grid-template-columns: 55px 1fr; /* ラベル幅を固定 */
+    gap: 4px 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.log-label {
+    font-weight: bold;
+    color: #555;
+    text-align: right;
+}
+.log-value {
+    font-family: "Menlo", "Monaco", monospace;
+    color: #000;
+    word-break: break-all;
+}
+.log-info, .log-error {
     font-style: italic;
-    color: #888;
     text-align: center;
     font-family: sans-serif;
+    padding: 8px 12px;
 }
 .log-error {
     color: #d93025;
@@ -67,12 +79,28 @@ footer {
     padding: 10px;
     padding-bottom: calc(10px + env(safe-area-inset-bottom)); /* iPhoneのノッチ対応 */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
+.gpx-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px;
+    flex-shrink: 0;
+}
+.gpx-option label {
+    font-size: 0.9rem;
+    color: #333;
+}
+#gpxExportCheckbox {
+    /* チェックボックスを少し大きくする */
+    transform: scale(1.2);
+}
+
 .btn {
-    width: 45%;
+    width: 38%;
     padding: 12px 0;
     font-size: 1rem;
     font-weight: bold;
