@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Logger PWA</title>
+    <!-- PWA用の設定 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="GPS Logger">
+    <link rel="apple-touch-icon" href="icon-192x192.png"> <!-- アイコン画像（後述） -->
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GPS Logger</h1>
+        <div id="status">位置情報を待っています...</div>
+        <div class="info-grid">
+            <div class="label">緯度:</div>
+            <div id="latitude">-</div>
+            <div class="label">経度:</div>
+            <div id="longitude">-</div>
+            <div class="label">標高:</div>
+            <div id="altitude">-</div>
+            <div class="label">取得日時:</div>
+            <div id="timestamp">-</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
