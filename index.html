@@ -2,32 +2,31 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>GPS Logger PWA</title>
     <!-- PWA用の設定 -->
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="GPS Logger">
-    <link rel="apple-touch-icon" href="icon-192x192.png"> <!-- アイコン画像（後述） -->
+    <link rel="apple-touch-icon" href="icon-192x192.png">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>GPS Logger</h1>
-        <div id="status">位置情報を待っています...</div>
-        <div class="info-grid">
-            <div class="label">緯度:</div>
-            <div id="latitude">-</div>
-            <div class="label">経度:</div>
-            <div id="longitude">-</div>
-            <div class="label">標高:</div>
-            <div id="altitude">-</div>
-            <div class="label">取得日時:</div>
-            <div id="timestamp">-</div>
-        </div>
-    </div>
+    </header>
+
+    <main id="log-container">
+        <div class="log-entry log-info">「開始」ボタンを押して計測を開始してください。</div>
+    </main>
+
+    <footer>
+        <button id="startButton" class="btn">開始</button>
+        <button id="stopButton" class="btn" disabled>終了</button>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
